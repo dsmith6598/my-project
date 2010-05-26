@@ -13,7 +13,7 @@
 
 ;; To connect the client to the database:
 
-(client ["ping"])
+(client ["ping"])  ;; test connection
 
 (use 'fleetdb.client)
 (def client (connect {:host "127.0.0.1", :port 3400}))
