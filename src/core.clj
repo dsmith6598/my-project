@@ -1,9 +1,16 @@
+
+
+
 ;;; new file ;;;
 
 (apply hash-map (interleave [:a :b :c] [1 2 3]))
 
 (into {} (map vector [:a :b :c] [1 2 3]))
 
+
+
+(def foo 10)
+(resolve 'foo)
 
 ;;; fleetdb ;;;
 
@@ -13,10 +20,14 @@
 
 ;; To connect the client to the database:
 
-(client ["ping"])  ;; test connection
+
 
 (use 'fleetdb.client)
+
 (def client (connect {:host "127.0.0.1", :port 3400}))
+
+(client ["ping"])
+
 
 
 (client ["insert" "accounts" {"id" 1, "owner" "Eve", "credits" 100}])
@@ -40,4 +51,8 @@
 
 
 (client ["update" "accounts" {"credits" 55} {"where" ["=" "owner" "Bob"]}])
+
+
+
+
 
